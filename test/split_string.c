@@ -36,35 +36,22 @@ char **split_string(char *str)
 		return NULL;
 
 	token = strtok(str, " ");
-	word_len = strlen(token);
 	i = 0;
 
-	/* allocate space for first word including null byte */
-	words[i] = malloc(sizeof(char) * (word_len + 1));
-	if (!words[i])
-		return NULL;
-	/* copy tokenized string into first index of array */
-	strcpy(words[i], token);
-
-	/* loop to tokenize and allocate space for each word */
 	while (token)
 	{
-		i++;
-		token = strtok(NULL, " ");
-		if (!token)
-		{
-			words[i] = NULL;
-			break;
-		}
-
 		word_len = strlen(token);
-
+		/* allocate space for first word including null byte */
 		words[i] = malloc(sizeof(char) * (word_len + 1));
 		if (!words[i])
 			return NULL;
 
+		/* copy tokenized string into first index of array */
 		strcpy(words[i], token);
+		token = strtok(NULL, " ");
+		i++;
 	}
+	words[i] = NULL;
 
 	return (words);
 }
