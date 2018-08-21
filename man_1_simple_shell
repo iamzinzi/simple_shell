@@ -18,25 +18,24 @@ Behaves similar to a primitive Unix shell with limited functionality. Ideally ha
 Interprets flags and uses spaces as a delimiter between each argv.
 
 .SH OPTION 
-No options currently exist for this hsh or simple_shell command. There are other options for the built in commands, however.
-
-.SH ARGUMENTS
-The first argument is assumed to be the name of the file or executable containing the shell command. If no file is found then the shell does magic like Penn and Teller.
+No options currently exist for this hsh or simple_shell command. However, there are other options for the built in commands.
 
 .SH RESERVED WORDS
-poop pee
+poop pee. /bin and other stuff that is real and serious
 
 .SH COMMENTS
-HAHAHA BRYAN. ALOHA
+This is a project we made to learn about the inner workings of a Unix shell. Many concomputer science concepts were practiced as we built this. Other non-technical skills were practiced like remote working, communicating over different time zones, and peer programming.
 
 .SH BUGS
-No known bugs. If any are found or encountered, please submit a thorough essay on the process of what you were doing before the crash to 369@holbertonschool.com.
+No known bugs. If any are found or encountered, please submit a thorough essay on the process of what you were doing before the crash to 369@holbertonschool.com. A processing fee will be required to fix this great product.
 
 .SH PARAMETERS
-As many as you want. Treat this like you would treat other shells.
+As many as you want, follow the synopsis formatting above. The golden rule... Treat this like you would treat other shells.
 
 .SH AUTHORS
-Jinji Zhang and Bryan Leung
+Jinji Zhang 362@holbertonschool.com
+
+Bryan Leung 369@holbertonschool.com
 
 .SH SEE ALSO
 Bash Reference Manual, Brian Fox and Chet Ramey
