@@ -1,0 +1,4 @@
+#this will find the max value of a PID which in this case is 32768 which is also 2^15
+#which fits perfectly as half of the positive sign of the 32 bit systems
+#!/bin/bash
+cat /proc/sys/kernel/pid_max
