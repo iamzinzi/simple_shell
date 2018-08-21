@@ -106,3 +106,7 @@ You can google this or the life cycle of a child process.*
 *End of File. It is a sign that the end of the file is reached and there is no more data. Ctrl-D is EOF for Linux and OS X and Ctrl-Z for Windows.*  
 
 Why does echo$$ print the same value as getppid? $ is a variable label and $ is itself?
+so pid_t is a signed int but we used %u to print out the value? does it matter?
+think we can get rid of count or bufp in the advance getline function>??
+or we cant.. but is that because each time we find a new line we place a garbage or null value in that skipped spot?
+is advance get line reading one extra character??
