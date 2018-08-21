@@ -1,0 +1,43 @@
+./" Manpage for simple_shell
+.TH simple_shell 1 "20 August 2018" "1.0" "Holberton Shell Manual Page"
+
+.SH NAME
+
+.B simple_shell
+- the holberton shell man page - does turtle magic.
+
+.SH SYNOPSIS
+
+.B hsh
+[options][file]
+
+.SH DESCRIPTION
+
+Behaves similar to a primitive Unix shell with limited functionality. Ideally has the same output as /bin/bash. This shell will execute commands read from the user's standard input
+
+Interprets flags and uses spaces as a delimiter between each argv.
+
+.SH OPTION 
+No options currently exist for this hsh or simple_shell command. There are other options for the built in commands, however.
+
+.SH ARGUMENTS
+The first argument is assumed to be the name of the file or executable containing the shell command. If no file is found then the shell does magic like Penn and Teller.
+
+.SH RESERVED WORDS
+poop pee
+
+.SH COMMENTS
+HAHAHA BRYAN. ALOHA
+
+.SH BUGS
+No known bugs. If any are found or encountered, please submit a thorough essay on the process of what you were doing before the crash to 369@holbertonschool.com.
+
+.SH PARAMETERS
+As many as you want. Treat this like you would treat other shells.
+
+.SH AUTHORS
+Jinji Zhang and Bryan Leung
+
+.SH SEE ALSO
+Bash Reference Manual, Brian Fox and Chet Ramey
+
