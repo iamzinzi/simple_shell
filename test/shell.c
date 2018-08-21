@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -6,7 +7,6 @@
 
 int word_count(char *str);
 char **split_string(char *str);
-void free_array_of_words(char **arr);
 
 /**
  * main - super simple shell
@@ -16,8 +16,8 @@ void free_array_of_words(char **arr);
 int main(void)
 {
 	int status, i;
-	char *buf;
-	char **argv;
+	char *buf = NULL;
+	char **argv = NULL;
 	pid_t child_pid;
 	size_t buf_size = 0;
 
@@ -26,11 +26,13 @@ int main(void)
 		printf("#cisfun$ ");
 		/* prompt user for command */
 		getline(&buf, &buf_size, stdin);
+
+		/* remove newline from string so program can execute*/
+		i = strlen(buf);
+		buf[i - 1] = '\0';
+
 		/* create argument vector of CL arguments*/
 		argv = split_string(buf);
-
-		for (i = 0; argv[i] != NULL; i++)
-			printf("argv[%d]: %s\n", i, argv[i]);
 
 		child_pid = fork();
 		if (child_pid == -1)
@@ -40,18 +42,16 @@ int main(void)
 		}
 		if (child_pid == 0)
 		{
-			printf("%u\n", getpid());
 			execve(argv[0], argv, NULL);
-			printf("lol\n");
 		}
 		else
 		{
 			wait(&status);
-			free_array_of_words(argv);
-			free(argv);
-			free(buf);
 		}
 	}
+
+	free(argv);
+	free(buf);
 
 	return (0);
 }
