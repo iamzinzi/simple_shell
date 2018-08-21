@@ -31,7 +31,7 @@ Kill the parent if you want to end the children.*
 *fork. That is a system call. It takes no arguments and returns a PID. The purpose is to create a child process for the caller. Should test the fork value to distinguished the parent from the child. If fork returned negative, error, if it returned 0, then it made a new child. If fork returned positive then that value is the child process to the parent.*  
 
 **What are the three prototypes of main?**  
-*int main(void)  
+* int main(void)  
 int main (int argc, char \*argv[])  
 int main(int argc, char \*argv[], char \*envp[])  *  
 
