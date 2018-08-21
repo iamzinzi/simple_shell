@@ -90,7 +90,7 @@ The system call is also a subroutine built into the system while a function call
 A few built-in commands are executed directly by the shell and are not searched for (echo, ed, pwd, kill, etc). These built in have no man pages, only help. If the command name is not a built-in, the shell tries to find the exe file. If there are no forward slashes, the shell looks in the PATH. Directories are separated by colons. Only one executable is run and if the file is not found we say the command is not found. *  
 
 **How to execute another program with the execve system call?**  
-* execve system call is used to execute a binary executable. On success it returns nothing but on error it returns -1. The first parameter is the path of a script or binary exe, the second parameter is an array of piointers and the last pointer must be NULL. The third and last parameter is an environment.
+*execve system call is used to execute a binary executable. On success it returns nothing but on error it returns -1. The first parameter is the path of a script or binary exe, the second parameter is an array of piointers and the last pointer must be NULL. The third and last parameter is an environment.
 So an example may be:  
 e = execve("/bin/ls", argv, envp);  
   if (e == -1)  
@@ -98,9 +98,9 @@ e = execve("/bin/ls", argv, envp);
 The execve system call is how new processes are created in UNIX. A execve call replaces the current process image with a new one. The execve calln ever returns since the process that called it is usually replaced.*  
 
 **How to suspend the execution of a process until one of its children terminates?**  
-* wait(). executing a wait system call will suspend the parent process until any of its children processes terminates. The wait call then returns and the parent process can continue. The prototype is pid_t wait(int \*status); 
+*wait(). executing a wait system call will suspend the parent process until any of its children processes terminates. The wait call then returns and the parent process can continue. The prototype is pid_t wait(int \*status); 
 The return value from wait is the PID of the child process that terminated. Ther parameter of wait is a pointer to a function that will recieve the child's exit status value. Exit call has no return and has some similarities to wait but that will not be covered here.
 You can google this or the life cycle of a child process.*  
 
 **What is EOF / “end-of-file”??**  
-* End of File. It is a sign that the end of the file is reached and there is no more data. Ctrl-D is EOF for Linux and OS X and Ctrl-Z for Windows. *  
+*End of File. It is a sign that the end of the file is reached and there is no more data. Ctrl-D is EOF for Linux and OS X and Ctrl-Z for Windows. *  
