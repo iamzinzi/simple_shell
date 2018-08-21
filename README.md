@@ -104,3 +104,5 @@ You can google this or the life cycle of a child process.*
 
 **What is EOF / “end-of-file”??**  
 *End of File. It is a sign that the end of the file is reached and there is no more data. Ctrl-D is EOF for Linux and OS X and Ctrl-Z for Windows.*  
+
+Why does echo$$ print the same value as getppid? $ is a variable label and $ is itself?
