@@ -83,7 +83,7 @@ The system call is also a subroutine built into the system while a function call
 **What are the three prototypes of main?**  
 * int main(void)  
 * int main (int argc, char \*argv[])  
-* int main(int argc, char \*argv[], char \*envp[])  *  
+* int main(int argc, char \*argv[], char \*envp[])  
 
 **How does the shell use the PATH to find the programs?**  
 *The job of a shell is to find and run commands. The shell identifies the command names then finds their files, or executables, to run. The first word is assumed to be the command name.
@@ -92,9 +92,9 @@ A few built-in commands are executed directly by the shell and are not searched 
 **How to execute another program with the execve system call?**  
 *execve system call is used to execute a binary executable. On success it returns nothing but on error it returns -1. The first parameter is the path of a script or binary exe, the second parameter is an array of piointers and the last pointer must be NULL. The third and last parameter is an environment.
 So an example may be:  
-e = execve("/bin/ls", argv, envp);  
-  if (e == -1)  
-      fprintf(stderr, "Error: %s\n", strerror(errno));  
+ e = execve("/bin/ls", argv, envp);  
+   if (e == -1)  
+       fprintf(stderr, "Error: %s\n", strerror(errno));  
 The execve system call is how new processes are created in UNIX. A execve call replaces the current process image with a new one. The execve calln ever returns since the process that called it is usually replaced.*  
 
 **How to suspend the execution of a process until one of its children terminates?**  
