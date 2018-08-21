@@ -35,7 +35,6 @@ int word_count(char *str)
 char **split_string(char *str)
 {
 	int wc, i;
-	size_t word_len;
 	char *token;
 	char **words;
 
@@ -47,8 +46,8 @@ char **split_string(char *str)
 		return (NULL);
 	/* token stores the pointer that strtok returns*/
 	token = strtok(str, " ");
-	word_len = strlen(token);
 	i = 0;
+
 
 	/* allocate space for first word including null byte */
 	words[i] = malloc(sizeof(char) * (word_len + 1));
@@ -75,8 +74,8 @@ char **split_string(char *str)
 		if (!words[i])
 			return (NULL);
 		/* copy the token into the word array then return the array*/
-		strcpy(words[i], token);
-	}
+    strcpy(words[i], token);
+	words[i] = NULL;
 
 	return (words);
 }
