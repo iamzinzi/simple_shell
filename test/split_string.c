@@ -3,26 +3,6 @@
 #include <string.h>
 
 /**
-* word_len - counts the length of a word until the null
-* @s: the string passed to us
-*
-* Description: needed this helper function to count the length of a string
-* Return: the length of the string
-*/
-
-int word_len(char *s)
-{
-	int i = 0;
-
-	while (s[i])
-	{
-		i++;
-	}
-	return (i);
-}
-
-
-/**
 * word_count - returns number of words in a string
 * @str: tje string that we will scan
 *
@@ -57,7 +37,6 @@ char **split_string(char *str)
 	int wc, i;
 	char *token;
 	char **words;
-	int word_len;
 
 	wc = word_count(str);
 
@@ -69,33 +48,13 @@ char **split_string(char *str)
 	token = strtok(str, " ");
 	i = 0;
 
-	word_len = strlen(token);
-	/* allocate space for first word including null byte */
-	words[i] = malloc(sizeof(char) * (word_len + 1));
-	if (!words[i])
-		return (NULL);
-	/* copy tokenized string into first index of array */
-	strcpy(words[i], token);
-
 	/* loop to tokenize and allocate space for each word */
 	while (token)
 	{
-		i++;
-		/* the first call to strtok, str is parsed in */
-		/* the next calls have str be NULL */
+		words[i] = token;
 		token = strtok(NULL, " ");
-		if (!token)
-		{
-			words[i] = NULL;
-			break;
-		}
-		/* count the length of the token and malloc it plus null */
-		word_len = strlen(token);
-		words[i] = malloc(sizeof(char) * (word_len + 1));
-		if (!words[i])
-			return (NULL);
-		/* copy the token into the word array then return the array*/
-    strcpy(words[i], token);
+		i++;
+	}
 	words[i] = NULL;
 
 	return (words);
