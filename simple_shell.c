@@ -17,12 +17,21 @@ int main(void)
 	while (is_on)
 	{
 		printf("#cisfun$ ");
-		/* prompt user for command */
-		getline(&buf, &buf_size, stdin);
+		/* prompt user for command and handles EOF */
+		if (getline(&buf, &buf_size, stdin) == EOF)
+		{
+			printf("\n");
+			break;
+		};
 
 		/* remove newline from string so program can execute*/
 		i = strlen(buf);
-		buf[i - 1] = '\0';
+
+		/* preserves single characters i.e. '\n' */
+		if (i > 1)
+		{
+			buf[i - 1] = '\0';
+		}
 
 		/* create argument vector of CL arguments*/
 		argv = split_string(buf);
@@ -37,10 +46,11 @@ int main(void)
 		{
 			execve(argv[0], argv, NULL);
 
-			if (strcmp(argv[0], "exit") == 0)
-			{
-				exit(0);
-			}
+//			if (strcmp(argv[0], "exit") == 0)
+//			{
+//				exit(0);
+//			}
+			exit(0);
 		}
 		else
 		{
