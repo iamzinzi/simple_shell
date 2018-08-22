@@ -17,21 +17,15 @@ int main(void)
 	while (is_on)
 	{
 		printf("#cisfun$ ");
-		/* prompt user for command */
-		getline(&buf, &buf_size, stdin);
-
-		/* handles EOF signal */
-		if (buf[0] <= 0)
+		/* prompt user for command and handles EOF */
+		if (getline(&buf, &buf_size, stdin) == EOF)
 		{
-			is_on = 0;
-			printf("test\n");
+			printf("\n");
 			break;
-			printf("test2\n");
-		}
-//		printf("test3\n");
+		};
+
 		/* remove newline from string so program can execute*/
 		i = strlen(buf);
-//		printf("test4\n");
 
 		/* preserves single characters i.e. '\n' */
 		if (i > 1)
@@ -52,10 +46,11 @@ int main(void)
 		{
 			execve(argv[0], argv, NULL);
 
-			if (strcmp(argv[0], "exit") == 0)
-			{
-				exit(0);
-			}
+//			if (strcmp(argv[0], "exit") == 0)
+//			{
+//				exit(0);
+//			}
+			exit(0);
 		}
 		else
 		{
