@@ -22,7 +22,7 @@ int main(void)
 		{
 			printf("\n");
 			break;
-		};
+		}
 
 		/* remove newline from string so program can execute*/
 		i = strlen(buf);
@@ -46,10 +46,6 @@ int main(void)
 		{
 			execve(argv[0], argv, NULL);
 
-//			if (strcmp(argv[0], "exit") == 0)
-//			{
-//				exit(0);
-//			}
 			exit(0);
 		}
 		else
