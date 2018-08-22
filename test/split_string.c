@@ -90,6 +90,7 @@ void free_array_of_words(char **arr)
 * Return: 0 is successful
 */
 
+/*
 int main(int argc __attribute__((unused)), char *argv[])
 {
 	int i;
@@ -108,4 +109,4 @@ int main(int argc __attribute__((unused)), char *argv[])
 	free(words_to_print);
 
 	return (0);
-}
+}*/
