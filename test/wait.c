@@ -3,6 +3,12 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+/**
+* main - a function that tests wait
+*
+* Return: 0 if successful
+*/
+
 int main(void)
 {
 	pid_t child_pid;
@@ -17,7 +23,7 @@ int main(void)
 	if (child_pid == 0)
 	{
 		printf("Wait for me, wait for me\n");
-
+		sleep(5);
 	}
 	else
 	{
