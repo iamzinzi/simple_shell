@@ -2,10 +2,10 @@
 #include <unistd.h>
 
 /**
-* main - example of execve
-*
-* Return: 0 if success.
-*/
+ * main - example of execve
+ *
+ * Return: 0 if success.
+ */
 
 int main(void)
 {
