@@ -7,21 +7,31 @@
  */
 int main(void)
 {
-	int status, i;
+	int status, i, is_on;
 	char *buf = NULL;
 	char **argv = NULL;
 	pid_t child_pid;
 	size_t buf_size = 0;
 
-	while (1)
+	is_on = 1;
+	while (is_on)
 	{
 		printf("#cisfun$ ");
-		/* prompt user for command */
-		getline(&buf, &buf_size, stdin);
+		/* prompt user for command and handles EOF */
+		if (getline(&buf, &buf_size, stdin) == EOF)
+		{
+			printf("\n");
+			break;
+		};
 
 		/* remove newline from string so program can execute*/
 		i = strlen(buf);
-		buf[i - 1] = '\0';
+
+		/* preserves single characters i.e. '\n' */
+		if (i > 1)
+		{
+			buf[i - 1] = '\0';
+		}
 
 		/* create argument vector of CL arguments*/
 		argv = split_string(buf);
@@ -35,10 +45,20 @@ int main(void)
 		if (child_pid == 0)
 		{
 			execve(argv[0], argv, NULL);
+
+//			if (strcmp(argv[0], "exit") == 0)
+//			{
+//				exit(0);
+//			}
+			exit(0);
 		}
 		else
 		{
 			wait(&status);
+			if (strcmp(argv[0], "exit") == 0)
+			{
+				is_on = 0;
+			}
 		}
 	}
 
