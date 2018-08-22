@@ -7,13 +7,14 @@
  */
 int main(void)
 {
-	int status, i;
+	int status, i, is_on;
 	char *buf = NULL;
 	char **argv = NULL;
 	pid_t child_pid;
 	size_t buf_size = 0;
 
-	while (1)
+	is_on = 1;
+	while (is_on)
 	{
 		printf("#cisfun$ ");
 		/* prompt user for command */
@@ -35,10 +36,19 @@ int main(void)
 		if (child_pid == 0)
 		{
 			execve(argv[0], argv, NULL);
+
+			if (strcmp(argv[0], "exit") == 0)
+			{
+				exit(0);
+			}
 		}
 		else
 		{
 			wait(&status);
+			if (strcmp(argv[0], "exit") == 0)
+			{
+				is_on = 0;
+			}
 		}
 	}
 
