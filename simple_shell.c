@@ -20,9 +20,24 @@ int main(void)
 		/* prompt user for command */
 		getline(&buf, &buf_size, stdin);
 
+		/* handles EOF signal */
+		if (buf[0] <= 0)
+		{
+			is_on = 0;
+			printf("test\n");
+			break;
+			printf("test2\n");
+		}
+//		printf("test3\n");
 		/* remove newline from string so program can execute*/
 		i = strlen(buf);
-		buf[i - 1] = '\0';
+//		printf("test4\n");
+
+		/* preserves single characters i.e. '\n' */
+		if (i > 1)
+		{
+			buf[i - 1] = '\0';
+		}
 
 		/* create argument vector of CL arguments*/
 		argv = split_string(buf);
