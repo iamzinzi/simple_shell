@@ -14,13 +14,19 @@ int main(void)
 	size_t buf_size = 0;
 
 	is_on = 1;
+
 	while (is_on)
 	{
-		printf("#cisfun$ ");
+		/* only prints prompt if interactive mode */
+		if (isatty(0) == 1)
+			printf("#cisfun$ ");
+
 		/* prompt user for command and handles EOF */
 		if (getline(&buf, &buf_size, stdin) == EOF)
 		{
-			printf("\n");
+			/* doesn't print newline if non-interactive mode */
+			if (isatty(0) == 1)
+				printf("\n");
 			break;
 		};
 
@@ -35,6 +41,10 @@ int main(void)
 
 		/* create argument vector of CL arguments*/
 		argv = split_string(buf);
+		if (!argv)
+		{
+			continue;
+		}
 
 		child_pid = fork();
 		if (child_pid == -1)
@@ -45,11 +55,6 @@ int main(void)
 		if (child_pid == 0)
 		{
 			execve(argv[0], argv, NULL);
-
-//			if (strcmp(argv[0], "exit") == 0)
-//			{
-//				exit(0);
-//			}
 			exit(0);
 		}
 		else
