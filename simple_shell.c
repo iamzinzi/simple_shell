@@ -57,8 +57,6 @@ int main(void)
 		}
 		if (child_pid == 0)
 		{
-
-			
 			/*
 			write(STDOUT_FILENO,
 				count_to_string, strlen(count_to_string));
