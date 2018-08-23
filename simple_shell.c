@@ -13,9 +13,10 @@ int main(void)
 	pid_t child_pid;
 	size_t buf_size = 0;
 	int counter = 0;
-/*	char *count_to_string; */
+	char *to_string;
 
 	is_on = 1;
+	to_string = malloc(sizeof(char) * 16);
 
 	while (is_on)
 	{
@@ -63,8 +64,14 @@ int main(void)
 				count_to_string, strlen(count_to_string));
 			*/
 			if (execve(argv[0], argv, NULL) == -1)
-			{	
-				perror("ERROR FIX THIS SHIT: ");
+			{
+				counter_to_string(counter, to_string);
+				write(STDOUT_FILENO,
+					to_string, strlen(to_string));
+				write(STDOUT_FILENO, ": ", 2);
+				write(STDOUT_FILENO, argv[0], strlen(argv[0]));
+				write(STDOUT_FILENO, ": not found\n", 12);
+				perror("");
 			}
 			exit(0);
 		}
@@ -78,7 +85,7 @@ int main(void)
 		}
 		counter++;
 	}
-
+	free(to_string);
 	free(argv);
 	free(buf);
 
