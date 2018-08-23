@@ -63,8 +63,9 @@ int main(void)
 				count_to_string, strlen(count_to_string));
 			*/
 			if (execve(argv[0], argv, NULL) == -1)
-			{	
-				perror("ERROR FIX THIS SHIT: ");
+			{
+				write(STDOUT_FILENO, "File: ", 6);
+				perror("");
 			}
 			exit(0);
 		}
