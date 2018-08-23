@@ -12,7 +12,7 @@ int main(void)
 	char **argv = NULL;
 	pid_t child_pid;
 	size_t buf_size = 0;
-	int counter = 0;
+	int counter = 1;
 	char *to_string;
 
 	is_on = 1;
@@ -59,12 +59,17 @@ int main(void)
 		{
 			if (execve(argv[0], argv, NULL) == -1)
 			{
-				counter_to_string(counter, to_string);
-				write(STDOUT_FILENO,
-					to_string, strlen(to_string));
-				write(STDOUT_FILENO, ": ", 2);
-				write(STDOUT_FILENO, argv[0], strlen(argv[0]));
-				write(STDOUT_FILENO, ": not found\n", 12);
+				if (argv[0][0] != '\n')
+				{
+					counter_to_string(counter, to_string);
+					write(STDOUT_FILENO,
+					      to_string, strlen(to_string));
+					write(STDOUT_FILENO, ": ", 2);
+					write(STDOUT_FILENO, argv[0],
+					      strlen(argv[0]));
+					write(STDOUT_FILENO, ": not found\n",
+					      12);
+				}
 			}
 			exit(0);
 		}
