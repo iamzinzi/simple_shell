@@ -57,10 +57,6 @@ int main(void)
 		}
 		if (child_pid == 0)
 		{
-			/*
-			write(STDOUT_FILENO,
-				count_to_string, strlen(count_to_string));
-			*/
 			if (execve(argv[0], argv, NULL) == -1)
 			{
 				counter_to_string(counter, to_string);
@@ -69,7 +65,6 @@ int main(void)
 				write(STDOUT_FILENO, ": ", 2);
 				write(STDOUT_FILENO, argv[0], strlen(argv[0]));
 				write(STDOUT_FILENO, ": not found\n", 12);
-				perror("");
 			}
 			exit(0);
 		}
