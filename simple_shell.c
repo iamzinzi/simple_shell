@@ -12,6 +12,8 @@ int main(void)
 	char **argv = NULL;
 	pid_t child_pid;
 	size_t buf_size = 0;
+	int counter = 0;
+/*	char *count_to_string; */
 
 	is_on = 1;
 
@@ -19,14 +21,14 @@ int main(void)
 	{
 		/* only prints prompt if interactive mode */
 		if (isatty(0) == 1)
-			printf("#cisfun$ ");
+			write(STDOUT_FILENO, "#cisfun$ ", 9);
 
 		/* prompt user for command and handles EOF */
 		if (getline(&buf, &buf_size, stdin) == EOF)
 		{
 			/* doesn't print newline if non-interactive mode */
 			if (isatty(0) == 1)
-				printf("\n");
+				write(STDOUT_FILENO, "\n", 1);
 			break;
 		}
 
@@ -54,7 +56,16 @@ int main(void)
 		}
 		if (child_pid == 0)
 		{
-			execve(argv[0], argv, NULL);
+
+			
+			/*
+			write(STDOUT_FILENO,
+				count_to_string, strlen(count_to_string));
+			*/
+			if (execve(argv[0], argv, NULL) == -1)
+			{	
+				perror("ERROR FIX THIS SHIT: ");
+			}
 			exit(0);
 		}
 		else
@@ -65,6 +76,7 @@ int main(void)
 				is_on = 0;
 			}
 		}
+		counter++;
 	}
 
 	free(argv);
