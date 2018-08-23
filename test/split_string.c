@@ -48,33 +48,13 @@ char **split_string(char *str)
 	token = strtok(str, " ");
 	i = 0;
 
-
-	/* allocate space for first word including null byte */
-	words[i] = malloc(sizeof(char) * (word_len + 1));
-	if (!words[i])
-		return (NULL);
-	/* copy tokenized string into first index of array */
-	strcpy(words[i], token);
-
 	/* loop to tokenize and allocate space for each word */
 	while (token)
 	{
-		i++;
-		/* the first call to strtok, str is parsed in */
-		/* the next calls have str be NULL */
+		words[i] = token;
 		token = strtok(NULL, " ");
-		if (!token)
-		{
-			words[i] = NULL;
-			break;
-		}
-		/* count the length of the token and malloc it plus null */
-		word_len = strlen(token);
-		words[i] = malloc(sizeof(char) * (word_len + 1));
-		if (!words[i])
-			return (NULL);
-		/* copy the token into the word array then return the array*/
-    strcpy(words[i], token);
+		i++;
+	}
 	words[i] = NULL;
 
 	return (words);
@@ -110,6 +90,7 @@ void free_array_of_words(char **arr)
 * Return: 0 is successful
 */
 
+/*
 int main(int argc __attribute__((unused)), char *argv[])
 {
 	int i;
@@ -128,4 +109,4 @@ int main(int argc __attribute__((unused)), char *argv[])
 	free(words_to_print);
 
 	return (0);
-}
+}*/
