@@ -5,7 +5,7 @@
  *
  * Return: 0 upon success
  */
-int main(void)
+int main(int ac __attribute__((unused)), char **av)
 {
 	int status, i, is_on;
 	char *buf = NULL;
@@ -62,6 +62,10 @@ int main(void)
 				if (argv[0][0] != '\n')
 				{
 					counter_to_string(counter, to_string);
+					write(STDOUT_FILENO, av[0],
+					      strlen(av[0])); //make own strlen
+					write(STDOUT_FILENO,
+					      ": ", 2);
 					write(STDOUT_FILENO,
 					      to_string, strlen(to_string));
 					write(STDOUT_FILENO, ": ", 2);
