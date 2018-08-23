@@ -11,11 +11,8 @@
 char *counter_to_string(int i, char *to_string)
 {
 	int div;
-	//char *stringy;
 	int j = 0;
 
-//	stringy = to_string;
-//	stringy = malloc(sizeof(char) * 16);
 	for (div = 1; div <= i; div *= 10)
 		;
 	while (i > 0)
