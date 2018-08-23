@@ -38,6 +38,9 @@ char **split_string(char *str)
 
 	wc = word_count(str);
 
+	/* NEW: if no words, return NULL so spaces do not segfault */
+	if (!wc)
+		return NULL;
 	/* malloc the number of words plus a null */
 	words = malloc(sizeof(char *) * (wc + 1));
 	if (!words)
