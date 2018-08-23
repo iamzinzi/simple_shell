@@ -1,6 +1,21 @@
 #include "shell.h"
 
 /**
+ * _strlen - counts how many characters is in a string
+ * @s: string
+ *
+ * Return: number of characters not including null byte
+ */
+int _strlen(char *s)
+{
+	int i;
+
+	for (i = 0; s[i] != '\0'; i++)
+		;
+	return (i);
+}
+
+/**
 * word_count - returns number of words in a string
 * @str: the string that we will scan
 *
@@ -40,7 +55,7 @@ char **split_string(char *str)
 
 	/* NEW: if no words, return NULL so spaces do not segfault */
 	if (!wc)
-		return NULL;
+		return (NULL);
 	/* malloc the number of words plus a null */
 	words = malloc(sizeof(char *) * (wc + 1));
 	if (!words)

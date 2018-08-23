@@ -34,7 +34,7 @@ int main(int ac __attribute__((unused)), char **av)
 		}
 
 		/* remove newline from string so program can execute*/
-		i = strlen(buf);
+		i = _strlen(buf);
 
 		/* preserves single characters i.e. '\n' */
 		if (i > 1)
@@ -63,14 +63,14 @@ int main(int ac __attribute__((unused)), char **av)
 				{
 					counter_to_string(counter, to_string);
 					write(STDOUT_FILENO, av[0],
-					      strlen(av[0])); //make own strlen
+					      _strlen(av[0]));
 					write(STDOUT_FILENO,
 					      ": ", 2);
 					write(STDOUT_FILENO,
-					      to_string, strlen(to_string));
+					      to_string, _strlen(to_string));
 					write(STDOUT_FILENO, ": ", 2);
 					write(STDOUT_FILENO, argv[0],
-					      strlen(argv[0]));
+					      _strlen(argv[0]));
 					write(STDOUT_FILENO, ": not found\n",
 					      12);
 				}
