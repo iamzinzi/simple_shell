@@ -57,7 +57,6 @@ int main(void)
 		}
 		if (child_pid == 0)
 		{
-
 			if (execve(argv[0], argv, NULL) == -1)
 			{
 				counter_to_string(counter, to_string);

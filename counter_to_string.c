@@ -1,12 +1,13 @@
 #include "shell.h"
 
 /**
-* counter_to_string - made my own ITOA
-* @i: an int of the counter we want to return as a char*
-*
-* Description: cant use itoa. need to make myown
-* Return: the pointer to the string so itoa.
-*/
+ * counter_to_string - made my own ITOA
+ * @i: an int of the counter we want to return as a char*
+ * @to_string: pointer to string to be updated with number
+ *
+ * Description: cant use itoa. need to make my own
+ * Return: the pointer to the string
+ */
 
 char *counter_to_string(int i, char *to_string)
 {
