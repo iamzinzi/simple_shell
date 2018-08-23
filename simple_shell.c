@@ -44,8 +44,10 @@ int main(int ac __attribute__((unused)), char **av)
 
 		/* create argument vector of CL arguments*/
 		argv = split_string(buf);
+		/* functionality for spaces */
 		if (!argv)
 		{
+			counter++;
 			continue;
 		}
 
@@ -59,7 +61,11 @@ int main(int ac __attribute__((unused)), char **av)
 		{
 			if (execve(argv[0], argv, NULL) == -1)
 			{
-				if (argv[0][0] != '\n')
+				if (_strcmp(argv[0], "exit") == 0)
+				{
+					break;
+				}
+				else if (argv[0][0] != '\n')
 				{
 					counter_to_string(counter, to_string);
 					write(STDOUT_FILENO, av[0],
@@ -80,7 +86,7 @@ int main(int ac __attribute__((unused)), char **av)
 		else
 		{
 			wait(&status);
-			if (strcmp(argv[0], "exit") == 0)
+			if (_strcmp(argv[0], "exit") == 0)
 			{
 				is_on = 0;
 			}

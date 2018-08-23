@@ -10,6 +10,7 @@
 
 int _strlen(char *s);
 int word_count(char *str);
+int _strcmp(char *s1, char *s2);
 char **split_string(char *str);
 char *counter_to_string(int i, char *to_string);
 
