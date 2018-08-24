@@ -72,3 +72,51 @@ char *_getenv(const char *name)
 	}
 	return (token);
 }
+
+/**
+ * add_node_end - adds a new node at the end of a `list_t` linked list
+ * @head: pointer to first node in linked list
+ * @str: string to be assigned to new node
+ *
+ * Return: address of the new element, or NULL if it failed
+ */
+list_t *add_node_end(list_t **head, const char *str)
+{
+	list_t *new, *i;
+
+	new = malloc(sizeof(list_t));
+	if (new == NULL)
+		return (NULL);
+
+	new->str = strdup(str);
+	new->next = NULL;
+
+	if (*head == NULL)
+	{
+		*head = new;
+	}
+	else
+	{
+		for (i = *head; i->next != NULL; i = i->next)
+			;
+		i->next = new;
+	}
+	return (new);
+}
+
+/**
+ * build_linked_list - builds a linked list
+ * @path: pointer to value of environment variable PATH
+ * @head: pointer to pointer to head of a linked list
+ */
+void build_linked_list(char *path, list_t **head)
+{
+	char *token;
+
+	token = strtok(path, ":");
+	while (token)
+	{
+		add_node_end(head, token);
+		token = strtok(NULL, ":");
+	}
+}
