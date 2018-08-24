@@ -99,3 +99,16 @@ int _strcmp(char *s1, char *s2)
 	}
 	return (s1[i] - s2[i]);
 }
+
+/**
+ * free_array - frees array of pointers
+ * @arr: array of pointers to be freed
+ */
+void free_array(char **arr)
+{
+	int i;
+
+	for (i = 0; arr[i]; i++)
+		free(arr[i]);
+	free(arr);
+}
