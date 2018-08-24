@@ -8,6 +8,8 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+extern char **environ;
+
 int _strlen(char *s);
 int word_count(char *str);
 int _strcmp(char *s1, char *s2);

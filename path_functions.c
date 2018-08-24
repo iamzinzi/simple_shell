@@ -53,7 +53,6 @@ char *_strstr(char *haystack, char *needle)
 char *_getenv(const char *name)
 {
 	int i;
-	extern char **environ;
 	char *token;
 
 	for (i = 0; environ[i]; i++)
@@ -65,4 +64,11 @@ char *_getenv(const char *name)
 		}
 	}
 	return (token);
+}
+
+int main()
+{
+	char *path = _getenv("PATH");
+	printf("%s\n", path);
+	return (0);
 }
