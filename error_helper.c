@@ -4,7 +4,7 @@
 * error_helper - helps write all the errors
 * @av: the av[0] passed to us
 * @argv: thr argv[0] that is passed to us
-* @to)string- the string that we want to be printed
+* @to_string: the string that we want to be printed
 *
 * Description: so we want to print out erros with first,
 *	we want the path av[0] printed first followed by
