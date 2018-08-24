@@ -16,12 +16,13 @@ char *counter_to_string(int i, char *to_string)
 
 	for (div = 1; div <= i; div *= 10)
 		;
-	while (i > 0)
+	div /= 10;
+	while (div > 0)
 	{
-		div /= 10;
 		to_string[j] = (i / div + '0');
 		i %= div;
 		j++;
+		div /= 10;
 	}
 	to_string[j] = '\0';
 	return (to_string);
