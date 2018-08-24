@@ -16,7 +16,7 @@ int main(int ac __attribute__((unused)), char **av)
 	char *to_string;
 
 	is_on = 1;
-	to_string = malloc(sizeof(char) * 16);
+	to_string = malloc(sizeof(char) * 17);
 
 	while (is_on)
 	{
@@ -63,6 +63,7 @@ int main(int ac __attribute__((unused)), char **av)
 			{
 				if (_strcmp(argv[0], "exit") == 0)
 				{
+					free_array(argv);
 					break;
 				}
 				else if (argv[0][0] != '\n')
@@ -79,6 +80,8 @@ int main(int ac __attribute__((unused)), char **av)
 					      _strlen(argv[0]));
 					write(STDOUT_FILENO, ": not found\n",
 					      12);
+					free(to_string);
+					free_array(argv);
 				}
 			}
 			exit(0);
@@ -92,10 +95,11 @@ int main(int ac __attribute__((unused)), char **av)
 			}
 		}
 		counter++;
+		free_array(argv);
+
 	}
-	free(to_string);
-	free(argv);
 	free(buf);
+	free(to_string);
 
 	return (0);
 }
