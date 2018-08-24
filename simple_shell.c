@@ -63,9 +63,7 @@ int main(int ac __attribute__((unused)), char **av)
 			{
 				if (_strcmp(argv[0], "exit") == 0)
 				{
-					free_array(argv);
-					free(to_string);
-					free(buf);
+					free(argv);
 					break;
 				}
 				else if (argv[0][0] != '\n')
@@ -99,7 +97,7 @@ int main(int ac __attribute__((unused)), char **av)
 			}
 		}
 		counter++;
-		free_array(argv);
+		free(argv);
 
 	}
 	free(buf);
