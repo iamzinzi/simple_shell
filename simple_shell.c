@@ -69,7 +69,9 @@ int main(int ac __attribute__((unused)), char **av)
 				else if (argv[0][0] != '\n')
 				{
 					counter_to_string(counter, to_string);
-					write(STDOUT_FILENO, av[0],
+					error_helper(
+						&av[0], &argv[0], to_string);
+			/*		write(STDOUT_FILENO, av[0],
 					      _strlen(av[0]));
 					write(STDOUT_FILENO,
 					      ": ", 2);
@@ -80,11 +82,10 @@ int main(int ac __attribute__((unused)), char **av)
 					      _strlen(argv[0]));
 					write(STDOUT_FILENO, ": not found\n",
 					      12);
-				}
+			*/	}
 				/* free it all before the exit */
 				free(to_string);
-				free(buf);
-				free_array(argv);
+				free(argv);
 			}
 			exit(0);
 		}
