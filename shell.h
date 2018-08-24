@@ -8,6 +8,20 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+/**
+ * struct list_s - singly linked list
+ * @str: string - (malloc'ed string)
+ * @next: points to the next node
+ *
+ * Description: singly linked list node structure
+ * for Holberton project
+ */
+typedef struct list_s
+{
+	char *str;
+	struct list_s *next;
+} list_t;
+
 extern char **environ;
 
 int _strlen(char *s);
