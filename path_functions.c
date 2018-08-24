@@ -52,17 +52,17 @@ char *_strstr(char *haystack, char *needle)
 
 char *_getenv(const char *name)
 {
-        int i;
-        extern char **environ;
-        char *token;
+	int i;
+	extern char **environ;
+	char *token;
 
-        for (i = 0; environ[i]; i++)
-        {
-                if (_strstr(environ[i], (char *)name))
-                {
-                        token = strtok(environ[i], "=");
-                        token = strtok(NULL, "=");
-                }
-        }
-        return (token);
+	for (i = 0; environ[i]; i++)
+	{
+		if (_strstr(environ[i], (char *)name))
+		{
+			token = strtok(environ[i], "=");
+			token = strtok(NULL, "=");
+		}
+	}
+	return (token);
 }
