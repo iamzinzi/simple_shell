@@ -12,7 +12,7 @@ The only difference is when you print an error, the name of the program must be 
 * Your C programs and functions will be compiled with `gcc 4.8.4` using the flags `-Wall -Werror -Wextra` and `-pedantic`
 * All your files should end with a new line
 * A `README.md` file, at the root of the folder of the project is mandatory
-* Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
+* Your code should use the `Betty` style. It will be checked using (betty-style.pl)[https://github.com/holbertonschool/Betty/blob/master/betty-style.pl] and (betty-doc.pl)[https://github.com/holbertonschool/Betty/blob/master/betty-doc.pl]
 * No more than 5 functions per file
 * All your header files should be include guarded
 * Use system calls only when you need to (why?)
