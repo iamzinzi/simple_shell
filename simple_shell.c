@@ -64,6 +64,8 @@ int main(int ac __attribute__((unused)), char **av)
 				if (_strcmp(argv[0], "exit") == 0)
 				{
 					free_array(argv);
+					free(to_string);
+					free(buf);
 					break;
 				}
 				else if (argv[0][0] != '\n')
@@ -80,9 +82,11 @@ int main(int ac __attribute__((unused)), char **av)
 					      _strlen(argv[0]));
 					write(STDOUT_FILENO, ": not found\n",
 					      12);
-					free(to_string);
-					free_array(argv);
 				}
+				/* free it all before the exit */
+				free(to_string);
+				free(buf);
+				free_array(argv);
 			}
 			exit(0);
 		}
