@@ -2,7 +2,8 @@
 
 /**
  * main - super simple shell
- *
+ * @ac: the argument count that we have
+ * @av: the array of strings that are our CL arguments
  * Return: 0 upon success
  */
 int main(int ac __attribute__((unused)), char **av)
@@ -69,17 +70,8 @@ int main(int ac __attribute__((unused)), char **av)
 				else if (argv[0][0] != '\n')
 				{
 					counter_to_string(counter, to_string);
-					write(STDOUT_FILENO, av[0],
-					      _strlen(av[0]));
-					write(STDOUT_FILENO,
-					      ": ", 2);
-					write(STDOUT_FILENO,
-					      to_string, _strlen(to_string));
-					write(STDOUT_FILENO, ": ", 2);
-					write(STDOUT_FILENO, argv[0],
-					      _strlen(argv[0]));
-					write(STDOUT_FILENO, ": not found\n",
-					      12);
+					error_helper(
+						&av[0], &argv[0], to_string);
 					free(to_string);
 					free(argv);
 				}
