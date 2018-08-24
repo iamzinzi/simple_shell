@@ -50,10 +50,17 @@ char *_strstr(char *haystack, char *needle)
 	return (substring);
 }
 
+/**
+ * _getenv - get an environment variable
+ * @name: name of environment variable to look for
+ *
+ * Return: pointer to the value in the environment
+ * or NULL if there is no match
+ */
 char *_getenv(const char *name)
 {
 	int i;
-	char *token;
+	char *token = NULL;
 
 	for (i = 0; environ[i]; i++)
 	{
@@ -64,11 +71,4 @@ char *_getenv(const char *name)
 		}
 	}
 	return (token);
-}
-
-int main()
-{
-	char *path = _getenv("PATH");
-	printf("%s\n", path);
-	return (0);
 }
