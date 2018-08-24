@@ -81,7 +81,7 @@ int main(int ac __attribute__((unused)), char **av)
 					write(STDOUT_FILENO, ": not found\n",
 					      12);
 					free(to_string);
-					free_array(argv);
+					free(argv);
 				}
 			}
 			exit(0);
