@@ -14,5 +14,6 @@ char *search_path(list_t *head, char *c)
 			return (full_command);
 		free(full_command);
 	}
+	free(command);
 	return (NULL);
 }

@@ -77,7 +77,8 @@ int main(int ac __attribute__((unused)), char **av)
 			{
 				full_command = search_path(head,
 							   argv[0]);
-				execve(full_command, argv, NULL);
+				if (full_command)
+					execve(full_command, argv, NULL);
 			}
 			if (argv[0][0] != '\n' && full_command == NULL)
 			{
@@ -104,6 +105,7 @@ int main(int ac __attribute__((unused)), char **av)
 		free(argv);
 
 	}
+	free_list(head);
 	free(buf);
 	free(to_string);
 
