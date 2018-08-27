@@ -140,6 +140,7 @@ void free_list(list_t *head)
 
 
 /* this is a function to test/prove that the above functions work */
+/*
 int main(void)
 {
 	list_t *head, *node;
@@ -156,3 +157,4 @@ int main(void)
 	free_list(head);
 	return (0);
 }
+*/
