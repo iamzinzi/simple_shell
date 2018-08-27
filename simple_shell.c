@@ -28,7 +28,7 @@ int main(int ac __attribute__((unused)), char **av)
 	{
 		/* only prints prompt if interactive mode */
 		if (isatty(0) == 1)
-			write(STDOUT_FILENO, "#cisfun$ ", 9);
+			write(STDOUT_FILENO, "$ ", 2);
 
 		/* prompt user for command and handles EOF */
 		if (getline(&buf, &buf_size, stdin) == EOF)
