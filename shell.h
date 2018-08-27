@@ -34,5 +34,6 @@ char *_getenv(const char *name);
 void error_helper(char **av, char **argv, char *to_string);
 list_t *add_node_end(list_t **head, const char *str);
 void build_linked_list(char *path, list_t **head);
+void free_list(list_t *head);
 
 #endif /* _SHELL_H_ */
