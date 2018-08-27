@@ -14,7 +14,12 @@ int main(int ac __attribute__((unused)), char **av)
 	pid_t child_pid;
 	size_t buf_size = 0;
 	int counter = 1;
-	char *to_string;
+	char *to_string, *full_command = NULL;
+	list_t *head = NULL;
+
+	/* build linked list of PATH directories */
+	char *path = _getenv("PATH");
+	build_linked_list(path, &head);
 
 	is_on = 1;
 	to_string = malloc(sizeof(char) * 17);
@@ -60,22 +65,29 @@ int main(int ac __attribute__((unused)), char **av)
 		}
 		if (child_pid == 0)
 		{
-			if (execve(argv[0], argv, NULL) == -1)
+			execve(argv[0], argv, NULL);
+
+			/* if doesn't execute: */
+			if (_strcmp(argv[0], "exit") == 0)
 			{
-				if (_strcmp(argv[0], "exit") == 0)
-				{
-					free(argv);
-					break;
-				}
-				else if (argv[0][0] != '\n')
-				{
-					counter_to_string(counter, to_string);
-					error_helper(
-						&av[0], &argv[0], to_string);
-					free(to_string);
-					free(argv);
-				}
+				free(argv);
+				break;
 			}
+			else if (argv[0][0] != '/')
+			{
+				full_command = search_path(head,
+							   argv[0]);
+				execve(full_command, argv, NULL);
+			}
+			if (argv[0][0] != '\n' && full_command == NULL)
+			{
+				counter_to_string(counter, to_string);
+				error_helper(
+					&av[0], &argv[0], to_string);
+				free(to_string);
+				free(argv);
+			}
+
 			exit(0);
 		}
 		else
@@ -85,6 +97,8 @@ int main(int ac __attribute__((unused)), char **av)
 			{
 				is_on = 0;
 			}
+			if (full_command)
+				free(full_command);
 		}
 		counter++;
 		free(argv);
