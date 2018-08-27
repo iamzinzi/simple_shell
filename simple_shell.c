@@ -73,6 +73,11 @@ int main(int ac __attribute__((unused)), char **av)
 				free(argv);
 				break;
 			}
+			if (_strcmp(argv[0], "env") == 0)
+			{
+				print_env();
+				break;
+			}
 			else if (argv[0][0] != '/')
 			{
 				full_command = search_path(head,
