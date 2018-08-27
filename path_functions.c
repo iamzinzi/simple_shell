@@ -121,7 +121,26 @@ void build_linked_list(char *path, list_t **head)
 	}
 }
 
+/**
+ * free_list - frees a `list_t` linked list
+ * @head: pointer to first node
+ */
+void free_list(list_t *head)
+{
+	list_t *tmp;
+
+	while (head != NULL)
+	{
+		tmp = head;
+		free(tmp->str);
+		head = head->next;
+		free(tmp);
+	}
+}
+
+
 /* this is a function to test/prove that the above functions work */
+/*
 int main(void)
 {
 	list_t *head, *node;
@@ -134,5 +153,8 @@ int main(void)
 	{
 		printf("%s\n", node->str);
 	}
+
+	free_list(head);
 	return (0);
 }
+*/

@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 
@@ -34,5 +35,8 @@ char *_getenv(const char *name);
 void error_helper(char **av, char **argv, char *to_string);
 list_t *add_node_end(list_t **head, const char *str);
 void build_linked_list(char *path, list_t **head);
+void free_list(list_t *head);
+char *str_concat(char *s1, char *s2);
+char *search_path(list_t *head, char *c);
 
 #endif /* _SHELL_H_ */
