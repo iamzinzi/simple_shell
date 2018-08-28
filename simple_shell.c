@@ -9,7 +9,6 @@
 
 int main(int ac, char **av)
 {
-	(void) ac;
 	int status, i, is_on;
 	int counter = 1;
 	char *buf = NULL;
@@ -24,6 +23,7 @@ int main(int ac, char **av)
 	build_linked_list(path, &head);
 	is_on = 1;
 	to_string = malloc(sizeof(char) * 17);
+	(void) ac;
 
 	while (is_on)
 	{
