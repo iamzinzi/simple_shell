@@ -1,5 +1,5 @@
 ./" Manpage for simple_shell
-.TH simple_shell 1 "20 August 2018" "1.0" "Holberton Shell Manual Page"
+.TH simple_shell 1 "28 August 2018" "1.0" "Holberton Shell Manual Page"
 
 .SH NAME
 
@@ -9,22 +9,22 @@
 .SH SYNOPSIS
 
 .B hsh
-[options][file]
+[options][command string | file]
 
 .SH DESCRIPTION
 
-Behaves similar to a primitive Unix shell with limited functionality. Ideally has the same output as /bin/bash. This shell will execute commands read from the user's standard input
+Behaves similar to a primitive Unix shell with limited functionality. Ideally has the same output as /bin/sh. This shell will execute commands read from the user's standard input. To initiate interactive mode, execute the holberton shell executable. Then type in commands as you would in bash or sh. Hsh also provides a non-interactive mode where the user can pipe commands strings into hsh.
 
-Interprets flags and uses spaces as a delimiter between each argv.
+Interprets flags and uses spaces as a delimiter between each argument.
 
-.SH OPTION 
+.SH OPTIONS
 No options currently exist for this hsh or simple_shell command. However, there are other options for the built in commands.
 
 .SH RESERVED WORDS
 poop pee. /bin and other stuff that is real and serious
 
 .SH COMMENTS
-This is a project we made to learn about the inner workings of a Unix shell. Many concomputer science concepts were practiced as we built this. Other non-technical skills were practiced like remote working, communicating over different time zones, and peer programming.
+This is a project we made to learn about the inner workings of a Unix shell. Many computer science concepts were practiced as we built this. Other non-technical skills were practiced like remote working, communicating over different time zones, and peer programming.
 
 .SH BUGS
 No known bugs. If any are found or encountered, please submit a thorough essay on the process of what you were doing before the crash to 369@holbertonschool.com. A processing fee will be required to fix this great product.
