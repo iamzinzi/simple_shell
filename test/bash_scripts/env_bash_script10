@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Initialize variables
+tmp_file="checker_tmp_file_$R"
+command="chmod 777 $tmp_file"
+cat_file="checker_cat_file_$R"
+
+# Clean up
+stop_shell
+
+# Create pseudo-random file
+touch $tmp_file
+
+# Run command with your shell and redirect to another psuedo-random file
+echo "$command" | "$SHELL" > $cat_file
+ls -l $cat_file  > "$YOUR_OUTPUT" 2> "$YOUR_ERROR" &
+
+# Change permissions to different value for proper testing in bash
+chmod 664 $tmp_file
+
+# Run command from sh and redirect/override that same pseudo-random file
+echo "$command" | sh > $cat_file
+ls -l $cat_file > "$EXPECTED_OUTPUT" 2> "$EXPECTED_ERROR"
+
+# Check output and errors
+check_output
+check_error
+
+# Clean up
+stop_shell

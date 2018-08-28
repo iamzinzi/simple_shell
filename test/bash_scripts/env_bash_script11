@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Initialize command
+command="ls -la /bin"
+
+# Clean up
+stop_shell
+
+# Run commands on your shell and Thompson Shell
+echo "$command" | "$SHELL" > "$YOUR_OUTPUT" 2> "$YOUR_ERROR" &
+echo "$command" | sh > "$EXPECTED_OUTPUT" 2> "$EXPECTED_ERROR"
+
+# Check the output and error
+check_output
+check_error
+
+# Clean up again
+stop_shell

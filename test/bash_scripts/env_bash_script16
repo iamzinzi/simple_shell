@@ -1,0 +1,23 @@
+#!/bin/bash
+
+command="exit 22 98"
+
+# Stop any running shells
+stop_shell
+
+# Run command
+echo $command | "$SHELL" > "$YOUR_OUTPUT" 2> "$YOUR_ERROR" &&\
+echo $? >> "$YOUR_OUTPUT"
+echo $command | sh > "$EXPECTED_OUTPUT" 2> "$EXPECTED_ERROR" &&\
+echo $? >> "$EXPECTED_OUTPUT"
+
+# wait a little bit
+"$SLEEP" "$SLEEPSECONDS"
+
+# compare stdout outputs (simple shell vs. real sh)
+check_output
+
+# compare stderr outputs (simple shell vs. real sh)
+check_error
+
+stop_shell
