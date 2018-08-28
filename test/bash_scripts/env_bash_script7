@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Initialize variables
+command="echo word"
+
+# Clean up results of previous tests
+stop_shell
+
+# Run command
+echo "$command" | "$SHELL" > "$YOUR_OUTPUT" 2> "$YOUR_ERROR" &
+echo "$command" | sh > "$EXPECTED_OUTPUT" 2> "$EXPECTED_ERROR"
+
+# Wait a little bit
+"$SLEEP" "$SLEEPSECONDS"
+
+# Check output and error
+check_output
+check_error
+
+# Clean up
+stop_shell

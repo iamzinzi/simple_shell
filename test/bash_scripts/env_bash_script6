@@ -1,0 +1,26 @@
+#!/bin/bash
+
+command="blahblahblah"
+
+tmp_file="checker_tmp_file_$R"
+
+# clean up
+stop_shell
+
+# create a pseudo random file
+echo "$command" > $tmp_file
+
+# run command
+cat $tmp_file | "$SHELL" > "$YOUR_OUTPUT" 2> "$YOUR_ERROR" &
+cat $tmp_file | sh > "$EXPECTED_OUTPUT" 2> "$EXPECTED_ERROR"
+
+# wait a little bit
+"$SLEEP" "$SLEEPSECONDS"
+
+# compare stdout outputs (simple shell vs. real sh)
+check_output
+
+# compare stderr outputs (simple shell vs. real sh)
+check_error
+
+stop_shell
