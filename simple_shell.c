@@ -102,8 +102,9 @@ int main(int ac __attribute__((unused)), char **av)
 			if (_strcmp(argv[0], "exit") == 0)
 			{
 				is_on = 0;
-				//string to int
-				//return integer type of argv[1]
+				printf("argv1 is %d\n", string_to_int(argv[1]));
+				exit(string_to_int(argv[1]));
+				
 			}
 			if (full_command)
 				free(full_command);
