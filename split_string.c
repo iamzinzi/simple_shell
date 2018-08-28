@@ -6,6 +6,7 @@
  *
  * Return: number of characters not including null byte
  */
+
 int _strlen(char *s)
 {
 	int i;
@@ -86,6 +87,7 @@ char **split_string(char *str)
  * 0 if s1 and s2 are the same
  * Positive integer if s1 belongs after s2
  */
+
 int _strcmp(char *s1, char *s2)
 {
 	int i;
@@ -108,6 +110,7 @@ int _strcmp(char *s1, char *s2)
  * Return: pointer to newly allocated space containing concatenated string
  * NULL on failure
  */
+
 char *str_concat(char *s1, char *s2)
 {
 	unsigned int i, j, len1, len2;
