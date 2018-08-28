@@ -80,7 +80,7 @@ char *_getenv(const char *name)
  *
  * Return: address of the new element, or NULL if it failed
  */
-list_t *add_node_end(list_t **head, const char *str)
+list_t *add_node_end(list_t **head, char *str)
 {
 	list_t *new, *i;
 
@@ -88,7 +88,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	if (new == NULL)
 		return (NULL);
 
-	new->str = strdup(str);
+	new->str = _strdup(str);
 	new->next = NULL;
 
 	if (*head == NULL)
@@ -137,24 +137,3 @@ void free_list(list_t *head)
 		free(tmp);
 	}
 }
-
-
-/* this is a function to test/prove that the above functions work */
-/*
-int main(void)
-{
-	list_t *head, *node;
-	char *path = _getenv("PATH");
-
-	head = NULL;
-	build_linked_list(path, &head);
-
-	for (node = head; node != NULL; node = node->next)
-	{
-		printf("%s\n", node->str);
-	}
-
-	free_list(head);
-	return (0);
-}
-*/

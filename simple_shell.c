@@ -6,22 +6,22 @@
  * @av: the array of strings that are our CL arguments
  * Return: 0 upon success
  */
+
 int main(int ac, char **av)
 {
 	(void) ac;
 	int status, i, is_on;
+	int counter = 1;
 	char *buf = NULL;
+	char *path = _getenv("PATH");
+	char *to_string, *full_command = NULL;
 	char **argv = NULL;
 	pid_t child_pid;
 	size_t buf_size = 0;
-	int counter = 1;
-	char *to_string, *full_command = NULL;
 	list_t *head = NULL;
 
 	/* build linked list of PATH directories */
-	char *path = _getenv("PATH");
 	build_linked_list(path, &head);
-
 	is_on = 1;
 	to_string = malloc(sizeof(char) * 17);
 
