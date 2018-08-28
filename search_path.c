@@ -3,7 +3,7 @@
 char *search_path(list_t *head, char *c)
 {
 	list_t *node;
-	struct stat buf;
+//	struct stat buf;
 	char *full_command;
 	char *command = str_concat("/", c);
 

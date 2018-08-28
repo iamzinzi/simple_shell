@@ -8,6 +8,7 @@
  */
 int main(int ac, char **av)
 {
+	(void) ac;
 	int status, i, is_on;
 	char *buf = NULL;
 	char **argv = NULL;
