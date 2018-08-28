@@ -137,24 +137,3 @@ void free_list(list_t *head)
 		free(tmp);
 	}
 }
-
-
-/* this is a function to test/prove that the above functions work */
-/*
-int main(void)
-{
-	list_t *head, *node;
-	char *path = _getenv("PATH");
-
-	head = NULL;
-	build_linked_list(path, &head);
-
-	for (node = head; node != NULL; node = node->next)
-	{
-		printf("%s\n", node->str);
-	}
-
-	free_list(head);
-	return (0);
-}
-*/

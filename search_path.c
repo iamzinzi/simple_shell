@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* main - prints the current env built in
+* print_env - prints the current env built in
 *
 * Return: none is void
 */
@@ -9,15 +9,15 @@
 void print_env(void)
 {
 
-        int i = 0;
+	int i = 0;
 
-        /* prints in form of "variable=value" */
-        while(environ[i])
-        {
-                write(STDIN_FILENO, environ[i], _strlen(environ[i]));
-                write(STDIN_FILENO, "\n", 1);
-                i++;
-        }
+	/* prints in form of "variable=value" */
+	while (environ[i])
+	{
+		write(STDIN_FILENO, environ[i], _strlen(environ[i]));
+		write(STDIN_FILENO, "\n", 1);
+		i++;
+	}
 }
 
 /**
@@ -32,24 +32,32 @@ void print_env(void)
 char *search_path(list_t *head, char *c)
 {
 	list_t *node;
-//	struct stat buf;
+/*	struct stat buf; */
 	char *full_command;
 	char *command = str_concat("/", c);
 
 	for (node = head; node != NULL; node = node->next)
 	{
 		full_command = str_concat(node->str, command);
-	//	if (stat(full_command, &buf) == 0)
-	//		return (full_command);
+/*
+*	if (stat(full_command, &buf) == 0)
+*		return (full_command);
+*/
 		if (access(full_command, X_OK) == 0)
 			return (full_command);
-//		if (stat(full_command, &buf) == 0)
-//		{
-//			if (access(full_command, X_OK) == -1)
-//			{
-//GET THIS TO WORK		write(1,"NOT FOUND", 9);
-//			}
-//		}
+
+/*
+* GET THIS TO WORK!!
+*
+*	if (stat(full_command, &buf) == 0)
+*	{
+*		if (access(full_command, X_OK) == -1)
+*		{
+*			write(1,"NOT FOUND", 9);
+*		}
+*	}
+*/
+
 		free(full_command);
 	}
 	free(command);
