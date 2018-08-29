@@ -4,7 +4,44 @@
 ### Project Overview:
 The shell will be compiled using this- `gcc -Wall -Werror -Wextra -pedantic *.c -o hsh`
 The program output must have the exact same output as `sh` (`/bin/sh`) as well as the exact same error output.
-The only difference is when you print an error, the name of the program must be equivalent to your `argv[0]`.
+The only difference is when you print an error, the name of the program is `./hsh` instead of `sh`.
+
+### Files
+* AUTHORS - List of contributors to this repo  
+* README.md - The README markdown file
+* datatype_converter.c - converts data types  
+    * string_to_int - converts a string to an integer  
+    * counter_to_string - converts an int to a string  
+* error_helper.c - handles the error messages that are written
+* man_1_simple_shell - Custom manual page for the simple_shell  
+* path_functions.c - helper functions that handle the PATH  
+    * \_strstr - searches a pattern, if a substring is found in a string  
+    * \_getenv - grabs the enviornment variable and returns it as a string  
+    * add_node_end - adds a new node at the end of the list_t linked list  
+    * build_linked_list - generates a linked list starting with the PATH  
+    * free_list - frees the linked list of list_t  
+* search_paths.c - iterates through the linked list (the PATH)  
+    * print_env - prints the current env built-in  
+    * search_path - loops through PATH to find the directory that contains the command    
+* shell.h - header file used throughout each file  
+* simple_shell.c - the main file   
+* split_string.c - has many string helper functions and helps tokenize the input  
+    * \_strlen - counts the length of the string  
+    * word_count - counts how many command or arguments were inputted  
+    * split_string - tokenizes the users standard input  
+    * \_strcmp - compares two strings, returns 0 if matching  
+    * str_concat - appends a '/' and the command to make a full path  
+* string_dup.c - duplicates and copies a string for specific purposes  
+
+### INSTALLATION AND USAGE EXAMPLES
+In the terminal, enter `git clone https://github.com/iamzinzi/simple_shell.git`  
+Then cd into the file via `cd simple_shell`  
+Enter interactive mode with `./hsh`  
+Enter the command `'s -l`  
+Be happy!  
+Exit with `exit` or Ctrl-D or Ctrl-C  
+The shell can also be run in non-interactive mode like so,  
+`echo "/bin/ls" | ./hsh`  
 
 ### Project Requirements:
 * Allowed editors: `vi`, `vim`, `emacs`
@@ -106,4 +143,5 @@ You can google this or the life cycle of a child process.*
 *End of File. It is a sign that the end of the file is reached and there is no more data. Ctrl-D is EOF for Linux and OS X and Ctrl-Z for Windows.*
 
 ## Authors
-[Jinji Zhang](https://twitter.com/hizinzi), [Bryan Leung](https://twitter.com/BynLeung)
+[Jinji Zhang](https://twitter.com/hizinzi)  
+[Bryan Leung](https://twitter.com/BynLeung)
