@@ -1,5 +1,5 @@
 ./" Manpage for simple_shell
-.TH simple_shell 1 "28 August 2018" "1.0" "Holberton Shell Manual Page"
+.TH SIMPLE_SHELL 1 "28 August 2018" "1.0" "Holberton Shell Manual Page"
 
 .SH NAME
 
@@ -16,21 +16,42 @@
 Behaves similar to a primitive Unix shell with limited functionality. Ideally has the same output as /bin/sh. This shell will execute commands read from the user's standard input. To initiate interactive mode, execute the holberton shell executable. Then type in commands as you would in bash or sh. Hsh also provides a non-interactive mode where the user can pipe commands strings into hsh.
 
 Interprets flags and uses spaces as a delimiter between each argument.
+It currently does not handle piping, redirection, aliases, expansion, and other functions.
+
+The shell can be invoked by typing ./hsh to enter interactive mode.
+Non-interactive mode is also supported so a user can input: [  echo "/bin/ls" | ./hsh  ].
+If the command contains no forward slash, the shell will loop through the PATH and attempt to find a match. If an executable is found then we will pre-pend the command with the absolute path and then execute that. If the search failed then the shell will print a "not found" error.
+
+.SH EXAMPLE
+
+Type ./hsh in the terminal to enter interactive mode. The PS1 prompt will ask for input.
+enter--- echo CisFun!
+
+The output should be CisFun!
+
+To exit, enter Ctrl-D or Ctrl-C or type in exit.
+
+Simple_shell may be ran in non-interactive mode. echo 'pwd' | ./hsh
+
+.SH BULTINS
+The following commands are supported, env - prints the enviornment variables and exit - quits the program.
 
 .SH OPTIONS
-No options currently exist for this hsh or simple_shell command. However, there are other options for the built in commands.
+No options currently exist for this hsh or simple_shell command. However, there are options for the PATH commands..
 
 .SH RESERVED WORDS
-poop pee. /bin and other stuff that is real and serious
+These words contain special meaning for the shell. There are many commands:
+
+! case do done elif else esac fi for function if in select then until while { } time [[ ]]
 
 .SH COMMENTS
 This is a project we made to learn about the inner workings of a Unix shell. Many computer science concepts were practiced as we built this. Other non-technical skills were practiced like remote working, communicating over different time zones, and peer programming.
 
 .SH BUGS
-No known bugs. If any are found or encountered, please submit a thorough essay on the process of what you were doing before the crash to 369@holbertonschool.com. A processing fee will be required to fix this great product.
+No known bugs. If any are found or encountered, please submit the process of what you were doing before the crash to 369@holbertonschool.com. A processing fee will be required to fix this great product.
 
 .SH PARAMETERS
-As many as you want, follow the synopsis formatting above. The golden rule... Treat this like you would treat other shells.
+As many as you want, follow the synopsis format above.
 
 .SH AUTHORS
 Jinji Zhang 362@holbertonschool.com
@@ -38,5 +59,7 @@ Jinji Zhang 362@holbertonschool.com
 Bryan Leung 369@holbertonschool.com
 
 .SH SEE ALSO
+man sh
+
 Bash Reference Manual, Brian Fox and Chet Ramey
 
