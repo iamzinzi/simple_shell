@@ -66,7 +66,10 @@ int main(int ac, char **av)
 		}
 		if (child_pid == 0)
 		{
-			execve(argv[0], argv, NULL);
+			if (execve(argv[0], argv, NULL) == -1)
+			{
+				exit(1);
+			}
 
 			/* if doesn't execute: */
 			if (_strcmp(argv[0], "exit") == 0)
@@ -108,6 +111,7 @@ int main(int ac, char **av)
 				{
 					exit(string_to_int(argv[1]));
 				}
+
 			}
 			if (full_command)
 				free(full_command);
