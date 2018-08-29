@@ -29,6 +29,7 @@ extern char **environ;
 void print_env(void);
 void free_list(list_t *head);
 void build_linked_list(char *path, list_t **head);
+void exit_helper(char **av, char **argv, char *to_string);
 void error_helper(char **av, char **argv, char *to_string);
 
 int _strlen(char *s);
@@ -40,9 +41,9 @@ char *_strdup(char *s);
 char **split_string(char *str);
 char *_getenv(const char *name);
 char *str_concat(char *s1, char *s2);
-char *search_path(list_t *head, char *c);
 char *_strstr(char *haystack, char *needle);
 char *counter_to_string(int i, char *to_string);
+char *search_path(list_t *head, char *c, char **av, char *to_string);
 
 list_t *add_node_end(list_t **head, char *str);
 
