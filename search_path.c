@@ -37,6 +37,8 @@ char *search_path(list_t *head, char *c, char **av, char *to_string)
 /*	struct stat buf; */
 	char *full_command;
 	char *command = str_concat("/", c);
+	(void) av;
+	(void) to_string;
 
 	for (node = head; node != NULL; node = node->next)
 	{
