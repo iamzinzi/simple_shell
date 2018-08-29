@@ -34,7 +34,11 @@ To exit, enter Ctrl-D or Ctrl-C or type in exit.
 Simple_shell may be ran in non-interactive mode. echo 'pwd' | ./hsh
 
 .SH BULTINS
-The following commands are supported, env - prints the enviornment variables and exit - quits the program.
+The following commands are supported:
+
+env - prints the enviornment variables
+
+exit - quits the program.
 
 .SH OPTIONS
 No options currently exist for this hsh or simple_shell command. However, there are options for the PATH commands..
