@@ -80,6 +80,7 @@ int main(int ac, char **av)
 			if (_strcmp(argv[0], "env") == 0)
 			{
 				print_env();
+				free(argv);
 				break;
 			}
 			else if (argv[0][0] != '/')
