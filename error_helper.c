@@ -46,10 +46,10 @@ void error_helper(char **av, char **argv, char *to_string)
 
 void exit_helper(char **av, char **argv, char *to_string)
 {
-	write(STDOUT_FILENO, av[0], _strlen(av[0]));
-	write(STDOUT_FILENO, ": ", 2);
-	write(STDOUT_FILENO, to_string, _strlen(to_string));
-	write(STDOUT_FILENO, ": exit: Illegal number: ", 24);
-	write(STDOUT_FILENO, argv[1], _strlen(argv[1]));
-	write(STDOUT_FILENO, "\n", 1);
+	write(2, av[0], _strlen(av[0]));
+	write(2, ": ", 2);
+	write(2, to_string, _strlen(to_string));
+	write(2, ": exit: Illegal number: ", 24);
+	write(2, argv[1], _strlen(argv[1]));
+	write(2, "\n", 1);
 }
