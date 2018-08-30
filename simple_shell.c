@@ -1,4 +1,21 @@
 #include "shell.h"
+#include <signal.h>
+
+/**
+* sigintHandler - handles ctrl c
+* @sig_
+*/
+
+void sigintHandler(int cow)
+{
+	(void) cow;
+    /* Reset handler to catch SIGINT next time.
+       Refer http://en.cppreference.com/w/c/program/signal */
+    signal(SIGINT, sigintHandler);
+    write(1, "\n", 1);
+	write(STDOUT_FILENO, "$ ", 2);
+    fflush(stdout);
+}
 
 /**
  * main - super simple shell
@@ -29,6 +46,7 @@ int main(int ac, char **av)
 
 	while (is_on)
 	{
+		signal(SIGINT, sigintHandler);
 		/* only prints prompt if interactive mode */
 		if (isatty(0) == 1)
 			write(STDOUT_FILENO, "$ ", 2);
@@ -41,7 +59,6 @@ int main(int ac, char **av)
 				write(STDOUT_FILENO, "\n", 1);
 			break;
 		}
-
 		/* remove newline from string so program can execute*/
 		i = _strlen(buf);
 
