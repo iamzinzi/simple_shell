@@ -125,8 +125,6 @@ int main(int ac, char **av)
 			}
 			if (full_command)
 				free(full_command);
-			else
-				exit_stat = 127;
 		}
 		counter++;
 		free(argv);
