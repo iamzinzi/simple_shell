@@ -86,6 +86,8 @@ int main(int ac, char **av)
 		}
 		if (child_pid == 0)
 		{
+			execve(argv[0], argv, NULL);
+
 			/* if doesn't execute: */
 			if (_strcmp(argv[0], "exit") == 0)
 			{
