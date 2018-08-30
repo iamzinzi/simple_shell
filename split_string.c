@@ -21,7 +21,7 @@ int _strlen(char *s)
 * @str: the string that we will scan
 *
 * Description: the main use of this function will be to
-*	find how many words are in the stdin. like a argc counter
+*	find how many words are in the input string. like a argc counter
 * Return: the number of words in the string
 */
 
@@ -54,7 +54,7 @@ char **split_string(char *str)
 
 	wc = word_count(str);
 
-	/* NEW: if no words, return NULL so spaces do not segfault */
+	/* if no words, return NULL so spaces do not segfault */
 	if (!wc)
 		return (NULL);
 	/* malloc the number of words plus a null */
@@ -128,7 +128,7 @@ char *str_concat(char *s1, char *s2)
 			;
 
 	/* allocate space for the two strings plus null byte */
-	p = (char *)malloc((len1 + len2 + 1) * sizeof(char));
+	p = malloc((len1 + len2 + 1) * sizeof(char));
 	if (p == NULL)
 		return (NULL);
 
