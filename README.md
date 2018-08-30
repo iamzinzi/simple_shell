@@ -40,7 +40,7 @@ The only difference is when you print an error, the name of the program is `./hs
 4. Enter the command `ls -l`  
 5. Be happy!  
 6. Exit with `exit` or Ctrl-D or Ctrl-C  
----
+
 The shell can also be run in non-interactive mode like so,  
 `echo "/bin/ls" | ./hsh`  
 
