@@ -3,18 +3,20 @@
 
 /**
 * sigintHandler - handles ctrl c
-* @sig_
+* @cow: an int of the signal
+*
+* Description: this is the helper function for the siugnal
+* Return: none it is void
 */
 
 void sigintHandler(int cow)
 {
 	(void) cow;
-    /* Reset handler to catch SIGINT next time.
-       Refer http://en.cppreference.com/w/c/program/signal */
-    signal(SIGINT, sigintHandler);
-    write(1, "\n", 1);
+
+	signal(SIGINT, sigintHandler);
+	write(1, "\n", 1);
 	write(STDOUT_FILENO, "$ ", 2);
-    fflush(stdout);
+	fflush(stdout);
 }
 
 /**
