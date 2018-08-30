@@ -103,6 +103,9 @@ int main(int ac, char **av)
 		else
 		{
 			wait(&status);
+			if (WIFEXITED(status))
+				exit_stat = WEXITSTATUS(status);
+
 			if (_strcmp(argv[0], "exit") == 0)
 			{
 				is_on = 0;
