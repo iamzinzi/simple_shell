@@ -65,15 +65,10 @@ int main(int ac, char **av)
 		if (child_pid == -1)
 		{
 			perror("Error:");
-			return (1);
+			exit(1);
 		}
 		if (child_pid == 0)
 		{
-			if (execve(argv[0], argv, NULL) == -1)
-			{
-				exit(1);
-			}
-
 			/* if doesn't execute: */
 			if (_strcmp(argv[0], "exit") == 0)
 			{
@@ -100,10 +95,10 @@ int main(int ac, char **av)
 				error_helper(
 					&av[0], &argv[0], to_string);
 				free(to_string);
+				exit_stat = 127;
 				free(argv);
 			}
-
-			exit(0);
+			exit(exit_stat);
 		}
 		else
 		{
