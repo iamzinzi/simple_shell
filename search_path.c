@@ -1,14 +1,10 @@
 #include "shell.h"
 
 /**
-* print_env - prints the current env built in
-*
-* Return: none is void
-*/
-
+ * print_env - prints the current env built in
+ */
 void print_env(void)
 {
-
 	int i = 0;
 
 	/* prints in form of "variable=value" */
@@ -21,15 +17,15 @@ void print_env(void)
 }
 
 /**
-* search_path - goes through the PATH to find a command that matches
-* @head: the head node from the linked list
-* @c: the string we have from the user command
-* @av: the arguments from the CLI
-* @to_string: the counter as an int but converted to a string
-*
-* Description: this tests if user has access permissions also
-* Return: Null if no access or the string if we have access
-*/
+ * search_path - searches along the PATH to find a command that matches
+ * @head: pointer to the head node of the linked list
+ * @c: the string we have from the user command
+ * @av: the arguments from the CLI
+ * @to_string: the counter as an int but converted to a string
+ *
+ * Description: this tests if user has access permissions also
+ * Return: Null if no access or the string if we have access
+ */
 
 char *search_path(list_t *head, char *c, char **av, char *to_string)
 {
@@ -67,7 +63,6 @@ char *search_path(list_t *head, char *c, char **av, char *to_string)
 */
 		free(full_command);
 	}
-
 	free(command);
 	return (NULL);
 }
