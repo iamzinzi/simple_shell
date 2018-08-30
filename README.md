@@ -2,8 +2,8 @@
 
 
 ### Project Overview:
-The shell will be compiled using this- `gcc -Wall -Werror -Wextra -pedantic *.c -o hsh`
-The program output must have the exact same output as `sh` (`/bin/sh`) as well as the exact same error output.
+The shell will be compiled using this- `gcc -Wall -Werror -Wextra -pedantic *.c -o hsh`  
+The program output must have the exact same output as `sh` (`/bin/sh`) as well as the exact same error output.  
 The only difference is when you print an error, the name of the program is `./hsh` instead of `sh`.
 
 ### Files
@@ -34,12 +34,13 @@ The only difference is when you print an error, the name of the program is `./hs
 * string_dup.c - duplicates and copies a string for specific purposes  
 
 ### INSTALLATION AND USAGE EXAMPLES
-In the terminal, enter `git clone https://github.com/iamzinzi/simple_shell.git`  
-Then cd into the file via `cd simple_shell`  
-Enter interactive mode with `./hsh`  
-Enter the command `'s -l`  
-Be happy!  
-Exit with `exit` or Ctrl-D or Ctrl-C  
+1. In the terminal, enter `git clone https://github.com/iamzinzi/simple_shell.git`  
+2. cd into the file via `cd simple_shell`  
+3. Enter interactive mode with `./hsh`  
+4. Enter the command `ls -l`  
+5. Be happy!  
+6. Exit with `exit` or Ctrl-D or Ctrl-C  
+---
 The shell can also be run in non-interactive mode like so,  
 `echo "/bin/ls" | ./hsh`  
 
