@@ -36,10 +36,11 @@ The only difference is when you print an error, the name of the program is `./hs
 ### INSTALLATION AND USAGE EXAMPLES
 1. In the terminal, enter `git clone https://github.com/iamzinzi/simple_shell.git`  
 2. cd into the file via `cd simple_shell`  
-3. Enter interactive mode with `./hsh`  
-4. Enter the command `ls -l`  
-5. Be happy!  
-6. Exit with `exit` or Ctrl-D or Ctrl-C  
+3. Compile with `gcc -Wall -Werror -Wextra -pedantic *.c -o hsh`
+4. Enter interactive mode with `./hsh`  
+5. Enter the command `ls -l`  
+6. Be happy!  
+7. Exit with `exit` or Ctrl-D or Ctrl-C  
 
 The shell can also be run in non-interactive mode like so,  
 `echo "/bin/ls" | ./hsh`  
